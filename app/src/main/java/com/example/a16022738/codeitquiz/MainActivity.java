@@ -1,5 +1,6 @@
 package com.example.a16022738.codeitquiz;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.main, new Settings()).commit();
             return true;
         }
 
@@ -77,7 +80,9 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.categories) {
 
-        } else if (id == R.id.lessons) {
+        } else if (id == R.id.lessonsId) {
+            android.support.v4.app.FragmentManager fm=getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.main, new Lessons()).commit();
 
         } else if (id == R.id.leaderboard) {
 
