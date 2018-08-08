@@ -5,7 +5,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    SharedPreferences preferences =
+    PreferenceManager.getDefaultSharedPreferences(getView().getContext());
+    String id = preferences.getString("id", "");
+    String url = "https://codeit100.000webhostapp.com/updateUser.php="+id;
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,7 +30,9 @@
         <activity android:name=".SignUp" />
         <!-- <activity android:name=".Confirmation"/> -->
         <activity android:name=".Logout" />
-        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".UpdateProfile" />
+        <activity android:name=".Leaderboard"></activity>
     </application>
 
 </manifest>

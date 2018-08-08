@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.support.v4.app.Fragment;
@@ -24,7 +25,8 @@ import java.util.List;
 
 public class ProfileActivity extends Fragment {
 
-    private TextView etUsername, etEmail;
+    private TextView viewUsername, viewEmail;
+    private Button btnUpdate;
 
 
     @Override
@@ -32,8 +34,19 @@ public class ProfileActivity extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_profile, container, false);
 
-        etUsername = (TextView) view.findViewById (R.id.viewUsername);
-        etEmail = (TextView)view.findViewById(R.id.viewEmail);
+        viewUsername = (TextView) view.findViewById (R.id.viewUsername);
+        viewEmail = (TextView)view.findViewById(R.id.viewEmail);
+        btnUpdate = (Button)view.findViewById(R.id.updateButton);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent (getActivity(),UpdateProfile.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
 
@@ -61,9 +74,11 @@ public class ProfileActivity extends Fragment {
 
 
 
+
     @Override
     public void onResume () {
         super.onResume();
+
 
 
 
@@ -93,8 +108,8 @@ public class ProfileActivity extends Fragment {
                             String userName = jsonObj.getString("username");
                             String email = jsonObj.getString("email");
 
-                        etUsername.setText(userName);
-                        etEmail.setText(email);
+                        viewUsername.setText(userName);
+                        viewEmail.setText(email);
 
 
                             Log.i("WWWW",userName);

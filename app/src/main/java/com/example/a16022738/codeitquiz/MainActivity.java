@@ -91,6 +91,9 @@ public class MainActivity extends AppCompatActivity
             fm.beginTransaction().replace(R.id.main, new Lessons()).commit();
 
         } else if (id == R.id.leaderboard) {
+            android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.main, new Leaderboard()).commit();
+
 
         } else if (id == R.id.logout) {
             android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
